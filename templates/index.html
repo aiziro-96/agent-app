@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Study Agent</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Study Agent</h1>
+        <p>
+            学習ログを整理して、
+            AIが次のアクションを提案します。
+        </p>
+
+            <form method="post">
+                <textarea name="study" placeholder="今日やったこと"></textarea>
+                <textarea name="trouble" placeholder="困ったこと"></textarea>
+                <br>
+                <button type="submit">送信</button>
+            </form>
+    
+        <div class="result-box">
+            {{ result }}
+        </div>
+    </div>
+</body>
+</html>
