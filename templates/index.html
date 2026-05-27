@@ -23,6 +23,19 @@
         <div class="result-box">
             {{ result }}
         </div>
+        <h2>最近の履歴</h2>
+
+        <div class="history-list">
+            {% for history in histories %}
+                <div class="history-card">
+                    <p class="date">{{ history[4] }}</p>
+                    <p><strong>学習内容：</strong>{{ history[0] }}</p>
+                    <p><strong>学習状態：</strong>{{ history[1] }}</p>
+                    <p><strong>AIコメント：</strong>{{ history[2] }}</p>
+                    <p><strong>明日のTODO：</strong>{{ history[3] }}</p>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 </body>
 </html>

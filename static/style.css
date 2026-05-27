@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   background-color: white;
   padding: 32px;
@@ -77,4 +77,50 @@ p {
   line-height: 1.8;
   white-space: pre-wrap;
   text-align: center;
+}
+
+h2 {
+    margin-top: 32px;
+    color: #4a6fa5;
+}
+
+.history-list {
+    display: grid;
+    gap: 16px;
+}
+
+.history-card {
+    background-color: #ffffff;
+    border: 1px solid #d6e4ff;
+    border-radius: 16px;
+    padding: 18px;
+}
+
+.date {
+    color: #777;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 20px;
+    }
+
+    .container {
+        padding: 24px;
+    }
+
+    textarea {
+        height: 120px;
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    button {
+        font-size: 14px;
+    }
 }
