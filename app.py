@@ -53,6 +53,7 @@ def home():
     
     if request.method == "POST":
         study = request.form["study"]
+        trouble = request.form["trouble"]
         memo = request.form["memo"]
         response = client.analyze_sentiment(
             documents=[study]
