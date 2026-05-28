@@ -79,8 +79,8 @@ def home():
             sentiment_jp = "安定"
             advice = "安定して学習を継続できています！"
             todo = "明日は今日の内容を3問だけ復習してみましょう。"
-            
-            negative_words = [
+
+        negative_words = [
             "難しい",
             "苦手",
             "疲れた",
@@ -89,9 +89,12 @@ def home():
         ]
 
         for word in negative_words:
-
             if word in study:
                 sentiment_jp = "悩み・疲れあり"
+                advice = "難しい内容にも挑戦できています。少しずつ復習していきましょう！"
+                todo = "明日は苦手な部分を1つだけ選んで、15分復習しましょう。"
+
+ 
         result = f"""
         【学習レポート】
 
