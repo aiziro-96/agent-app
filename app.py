@@ -46,6 +46,7 @@ def home():
     
     if request.method == "POST":
         study = request.form["study"]
+        memo = request.form["memo"]
         response = client.analyze_sentiment(
             documents=[study]
         )[0]
@@ -104,8 +105,11 @@ def home():
         ■ 感情分析
         {sentiment_jp}
         
-        ■ 明日のTODO
+        ■ AIから提案された明日のTODO
         {todo}
+        
+        ■ 明日やることメモ
+        {memo}
 
         ■ AIコメント
         {advice}
@@ -114,13 +118,20 @@ def home():
         conn = sqlite3.connect("history.db")
         c = conn.cursor()
         c.execute("""
-            INSERT INTO histories (study, sentiment, advice, todo, created_at)
-            VALUES (?, ?, ?, ?, ?)
+            INSERT INTO histories (
+                study, 
+                sentiment, 
+                advice, 
+                todo, 
+                memo,
+                created_at)
+            VALUES (?, ?, ?, ?, ?, ?)
         """, (
             study,
             sentiment_jp,
             advice,
             todo,
+            memo,
             datetime.now().strftime("%Y-%m-%d %H:%M")
         ))
         conn.commit()
