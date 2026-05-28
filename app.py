@@ -96,13 +96,14 @@ def home():
             "混乱"
         ]
 
+        combined_text = study + trouble
+
         for word in negative_words:
-            if word in study:
+            if word in combined_text:
                 sentiment_jp = "悩み・疲れあり"
                 advice = "難しい内容にも挑戦できています。少しずつ復習していきましょう！"
                 todo = "明日は苦手な部分を1つだけ選んで、15分復習しましょう。"
-
- 
+        
         result = f"""
         【学習レポート】
 
