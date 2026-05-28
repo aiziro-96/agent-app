@@ -30,9 +30,16 @@ def init_db():
             sentiment TEXT,
             advice TEXT,
             todo TEXT,
+            memo TEXT,
             created_at TEXT
         )
     """)
+    
+    try:
+        c.execute("ALTER TABLE histories ADD COLUMN memo TEXT")
+    except sqlite3.OperationalError:
+        pass
+    
     conn.commit()
     conn.close()
 
@@ -140,7 +147,7 @@ def home():
         conn = sqlite3.connect("history.db")
         c = conn.cursor()
         c.execute("""
-            SELECT study, sentiment, advice, todo, created_at
+            SELECT study, sentiment, advice, todo, memo, created_at
             FROM histories
             ORDER BY id DESC
             LIMIT 5
